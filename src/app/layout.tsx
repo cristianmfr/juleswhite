@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Quicksand } from "next/font/google";
 import "./globals.css";
 import { NavigationMenuDemo } from "@/components/templates/navbar";
+import { Footer } from "@/components/templates/footer";
+import Image from "next/image";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const quicksand = Quicksand({
+  variable: "--font-quicksand",
   subsets: ["latin"],
 });
 
@@ -25,16 +22,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <header className="flex flex-col bg-transparent rounded-[22px] backdrop-blur-sm items-center justify-center h-[100px]">
+      <body className={`${quicksand.className} antialiased`}>
+        <header className="flex bg-transparent rounded-[22px] backdrop-blur-sm items-center justify-center h-[100px]">
+          <Image
+            src="/logo-fancy.png"
+            alt="Logo"
+            width={150}
+            height={150}
+            className="-ml-[100px]"
+          />
           <NavigationMenuDemo />
         </header>
         {children}
-        {/* <footer className="flex flex-col w-full h-[200px] mt-8">
+        <footer className="flex flex-col w-full h-[200px] mt-8 p-4">
           <Footer />
-        </footer> */}
+        </footer>
       </body>
     </html>
   );

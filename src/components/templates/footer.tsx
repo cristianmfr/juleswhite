@@ -1,11 +1,19 @@
+import { Instagram, Facebook, Linkedin, Phone } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export function Footer() {
   return (
-    <div className="flex flex-col w-full h-full bg-white p-8">
+    <div className="flex flex-col w-full h-full bg-foreground text-background p-8 rounded-[22px]">
       <div className="grid grid-cols-8 w-full h-full">
-        <div className="col-span-2 flex flex-col w-full gap-4">
-          <span className="text-sm">Logo</span>
+        <div className="col-span-2 flex flex-col w-full gap-4 items-start justify-center">
+          <Image src="/logo.png" alt="Logo" width={150} height={150} />
+          <div className="flex flex-row gap-4 items-center justify-between">
+            <Phone />
+            <Instagram />
+            <Facebook />
+            <Linkedin />
+          </div>
         </div>
         <div className="col-span-2 flex flex-col w-full gap-2">
           <Link href="/" className="text-sm">

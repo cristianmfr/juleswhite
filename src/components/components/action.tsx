@@ -4,28 +4,41 @@ import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import { TextGenerateEffect } from "../templates/text-generate";
+import { HoverMotion } from "../templates/hover-anim";
+import TitleTransition from "../templates/title-transition";
+
 export default function Action() {
   return (
     <div className="grid grid-cols-2 p-4">
       <div className="col-span-1 flex flex-col w-full gap-4">
         <div className="flex flex-col w-2/3 gap-2">
-          <span className="text-sm font-medium text-foreground">Contato</span>
-          <span className="text-[28px] leading-none font-bold text-primary">
-            Como a JulesWhite pode te ajudar hoje?
-          </span>
-          <span className="text-sm">
-            Deseja solicitar orçamento, buscar suporte técnico ou tem dúvidas
-            sobre nossas soluções?
-          </span>
+          <TextGenerateEffect
+            words="Contato"
+            className="text-sm font-medium text-foreground"
+          />
+          <TextGenerateEffect
+            words="Como a JulesWhite pode te ajudar hoje?"
+            className="text-[28px] leading-none font-bold text-primary"
+          />
+          <TextGenerateEffect
+            words="Deseja solicitar orçamento, buscar suporte técnico ou tem dúvidas
+            sobre nossas soluções?"
+            className="text-sm"
+          />
         </div>
         <div className="flex flex-col w-full items-start justify-center">
-          <Image
-            src="/form-image.png"
-            alt="About"
-            width={360}
-            height={360}
-            className="drop-shadow-[0_10px_10px_#D8B6AB] drop-shadow-primary"
-          />
+          <TitleTransition>
+            <HoverMotion>
+              <Image
+                src="/form-image.png"
+                alt="About"
+                width={360}
+                height={360}
+                className="drop-shadow-[0_10px_10px_#D8B6AB] drop-shadow-primary"
+              />
+            </HoverMotion>
+          </TitleTransition>
         </div>
       </div>
       <div className="col-span-1 flex flex-col w-full gap-4 ">
